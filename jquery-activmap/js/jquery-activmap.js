@@ -237,19 +237,24 @@
 
                     //Marker click event
                     google.maps.event.addListener(marker, 'click', function () {
-                        console.log('oh yeh baby')
+                        // console.log('oh yeh baby')
                         if (opendInfoWindow != null) opendInfoWindow.close();
-                        infoWindow[i].open(map, marker);
+                        // infoWindow[i].open(map, marker);
 
                         map.setCenter(marker.getPosition());
                         var padbnds = _paddedBounds(20, 280, 50, 50);
                         map.fitBounds(padbnds);
 
-                        opendInfoWindow = infoWindow[i];
+                        // opendInfoWindow = infoWindow[i];
 
                         $('.activmap-place').removeClass('active');
                         $('#activmap-place_' + i).addClass('active');
-                        activmap_places.scrollTop(activmap_places.scrollTop() + $('#activmap-place_' + i).position().top);
+                        // activmap_places.scrollTop(activmap_places.scrollTop() + $('#activmap-place_' + i).position().top);
+                        $('.riderid').html(place.title)
+                        $('.country').html(place.num_tags)
+                        $('.zipCode').html(place.lat)
+                        $('.city').html(place.lng)
+                        // console.log('markder', place)
                     });
 
                     marker.setVisible(false);
