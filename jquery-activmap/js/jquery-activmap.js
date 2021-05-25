@@ -8,14 +8,16 @@
     // DON'T CHANGE THE VALUES HERE, overwrite the options in your HTML file
     defaults: {
       places: [], //list of places objects {title, address, phone, tags, lat, lng, img},
-      lat: 51.507351, //latitude of the center
-      lng: -0.127758, //longitude of the center
+      lat: 48.2361036, //latitude of the center
+      lng: 21.2235513, //longitude of the center
+      // lat: 51.507351, //latitude of the center
+      // lng: -0.127758, //longitude of the center
       zoom: 10, //default zoom level between 0 and 21
       cluster: true, //enables / disables clustering for large amounts of markers
       mapType: "roadmap", //map type : "roadmap", "satellite", "perspective"
       posPanel: "left", //position of the removable panel : "left" or "right"
       showPanel: true, //shows / hides the removable panel
-      radius: 0, //max radius in kilometers
+      radius: 50, //max radius in kilometers
       unit: "km", //distance unit (km or mile)
       country: null, //country limit for location input (ex. "ca": Canada, "us": United States, "fr": France...)
       autogeolocate: false, //auto geolocation to set the center of the map
@@ -67,8 +69,8 @@
           zoom: s.zoom,
           center: latlng,
           mapTypeId: mapTypeId,
-          styles: s.styles,
-          mapTypeControl: true,
+          // styles: s.styles,
+          mapTypeControl: false,
           mapTypeControlOptions: {
             style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
             position: google.maps.ControlPosition.RIGHT_TOP,
@@ -77,96 +79,210 @@
           zoomControlOptions: {
             position: google.maps.ControlPosition.LEFT_CENTER,
           },
-          scaleControl: true,
-          streetViewControl: true,
+          scaleControl: false,
+          streetViewControl: false,
           streetViewControlOptions: {
             position: google.maps.ControlPosition.RIGHT_BOTTOM,
           },
           fullscreenControl: false,
           styles: [
-            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
             {
-              elementType: "labels.text.stroke",
-              stylers: [{ color: "#242f3e" }],
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#212121",
+                },
+              ],
+            },
+            {
+              elementType: "labels.icon",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
             },
             {
               elementType: "labels.text.fill",
-              stylers: [{ color: "#746855" }],
+              stylers: [
+                {
+                  color: "#757575",
+                },
+              ],
+            },
+            {
+              elementType: "labels.text.stroke",
+              stylers: [
+                {
+                  color: "#212121",
+                },
+              ],
+            },
+            {
+              featureType: "administrative",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#757575",
+                },
+              ],
+            },
+            {
+              featureType: "administrative.country",
+              elementType: "labels.text.fill",
+              stylers: [
+                {
+                  color: "#9e9e9e",
+                },
+              ],
+            },
+            {
+              featureType: "administrative.land_parcel",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
             },
             {
               featureType: "administrative.locality",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#d59563" }],
+              stylers: [
+                {
+                  color: "#bdbdbd",
+                },
+              ],
             },
             {
               featureType: "poi",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#d59563" }],
+              stylers: [
+                {
+                  color: "#757575",
+                },
+              ],
             },
             {
               featureType: "poi.park",
               elementType: "geometry",
-              stylers: [{ color: "#263c3f" }],
+              stylers: [
+                {
+                  color: "#181818",
+                },
+              ],
             },
             {
               featureType: "poi.park",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#6b9a76" }],
+              stylers: [
+                {
+                  color: "#616161",
+                },
+              ],
+            },
+            {
+              featureType: "poi.park",
+              elementType: "labels.text.stroke",
+              stylers: [
+                {
+                  color: "#1b1b1b",
+                },
+              ],
             },
             {
               featureType: "road",
-              elementType: "geometry",
-              stylers: [{ color: "#38414e" }],
-            },
-            {
-              featureType: "road",
-              elementType: "geometry.stroke",
-              stylers: [{ color: "#212a37" }],
+              elementType: "geometry.fill",
+              stylers: [
+                {
+                  color: "#2c2c2c",
+                },
+              ],
             },
             {
               featureType: "road",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#9ca5b3" }],
+              stylers: [
+                {
+                  color: "#8a8a8a",
+                },
+              ],
+            },
+            {
+              featureType: "road.arterial",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#373737",
+                },
+              ],
             },
             {
               featureType: "road.highway",
               elementType: "geometry",
-              stylers: [{ color: "#746855" }],
+              stylers: [
+                {
+                  color: "#3c3c3c",
+                },
+              ],
             },
             {
-              featureType: "road.highway",
-              elementType: "geometry.stroke",
-              stylers: [{ color: "#1f2835" }],
+              featureType: "road.highway.controlled_access",
+              elementType: "geometry",
+              stylers: [
+                {
+                  color: "#4e4e4e",
+                },
+              ],
             },
             {
-              featureType: "road.highway",
+              featureType: "road.local",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#f3d19c" }],
+              stylers: [
+                {
+                  color: "#616161",
+                },
+              ],
             },
             {
               featureType: "transit",
-              elementType: "geometry",
-              stylers: [{ color: "#2f3948" }],
-            },
-            {
-              featureType: "transit.station",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#d59563" }],
+              stylers: [
+                {
+                  color: "#757575",
+                },
+              ],
             },
             {
               featureType: "water",
               elementType: "geometry",
-              stylers: [{ color: "#17263c" }],
+              stylers: [
+                {
+                  color: "#000000",
+                },
+              ],
             },
             {
               featureType: "water",
               elementType: "labels.text.fill",
-              stylers: [{ color: "#515c6d" }],
+              stylers: [
+                {
+                  color: "#3d3d3d",
+                },
+              ],
             },
             {
-              featureType: "water",
-              elementType: "labels.text.stroke",
-              stylers: [{ color: "#17263c" }],
+              featureType: "poi.business",
+              stylers: [{ visibility: "off" }],
+            },
+            {
+              featureType: "transit",
+              elementType: "labels.icon",
+              stylers: [{ visibility: "off" }],
+            },
+            {
+              featureType: "poi",
+              elementType: "labels",
+              stylers: [{ visibility: "off" }],
             },
           ],
         }
@@ -285,6 +401,7 @@
             $(".activmap-place").removeClass("active");
             $("#activmap-place_" + i).addClass("active");
             // activmap_places.scrollTop(activmap_places.scrollTop() + $('#activmap-place_' + i).position().top);
+            $(".app-bottom-menu").show();
             $(".riderid").html(place.title);
             $(".country").html(place.country);
             $(".zipCode").html(place.zipCode);
@@ -378,16 +495,16 @@
             function () {
               var place = autocomplete.getPlace();
               latlng = place.geometry.location;
-              //map.setCenter(place.geometry.location);
+              map.setCenter(place.geometry.location);
               if ($(".activmap-place").length) _order();
               $(
                 'input[name="marker_type[]"], select[name="marker_type[]"]'
               ).each(function () {
                 _update_places_tag($(this), false);
               });
-              _update_center_marker();
+              // _update_center_marker();
               //bounds = map.getBounds();
-              _update_map();
+              // _update_map();
             }
           );
         }
@@ -477,7 +594,7 @@
        */
       _update_center_marker = function () {
         centerMarker.setPosition(latlng);
-        _update_places_bounds();
+        // _update_places_bounds();
       };
 
       /* _geolocate() geolocates the user
@@ -493,16 +610,17 @@
                 position.coords.longitude
               );
               latlng = initialLocation;
-              //map.setCenter(latlng);
-              if ($(".activmap-place").length) _order();
+              map.setCenter(latlng);
+              // if ($(".activmap-place").length)
+              _order();
               $(
                 'input[name="marker_type[]"], select[name="marker_type[]"]'
               ).each(function () {
                 _update_places_tag($(this), false);
               });
-              _update_center_marker();
+              // _update_center_marker();
               //bounds = map.getBounds();
-              _update_map();
+              // _update_map();
             },
             function () {
               handleNoGeolocation(browserSupportFlag);

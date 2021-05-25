@@ -186,7 +186,10 @@
               </span>
             </div>
           </div>
-          <div class="app-bottom-menu" style="bottom: 0px; height: 200px">
+          <div
+            class="app-bottom-menu"
+            style="bottom: 0px; height: 200px; display: none"
+          >
             <div class="bottom-menu-wrapper">
               <!-- SEARCH RESULTS -->
               <div class="dropdown-container" style="margin-top: 15px">
@@ -251,10 +254,7 @@
               </div>
 
               <div class="ch dropdown-container" style="margin-top: px">
-                <a
-                  class="whatsapp"
-                  style="width: 100%"
-                >
+                <a class="whatsapp" style="width: 100%">
                   <div
                     class="ch"
                     style="
@@ -283,153 +283,13 @@
                     results</a> -->
 
           <!-- Activ'Map categories and tags -->
-          <div
-            class="panel-group"
-            id="activmap-accordion"
+          <input
+            type="checkbox"
+            name="marker_type[]"
+            value="tourism_01"
+            checked="checked"
             style="display: none"
-          >
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" href="#collapse-tourism">
-                    <i class="fa fa-suitcase"></i> Tourism
-                  </a>
-                </h4>
-              </div>
-              <div
-                id="collapse-tourism"
-                class="panel-collapse collapse in"
-                style="display: none"
-              >
-                <div class="panel-body">
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="tourism_01"
-                    checked="checked"
-                  />
-                  Hotels<br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="tourism_02"
-                  />
-                  Monuments
-                  <select name="marker_type[]">
-                    <option value="">- Monument type -</option>
-                    <option value="tourism_02_01" selected="selected">
-                      Places of worship
-                    </option>
-                    <option value="tourism_02_02">Bridge</option>
-                    <option value="tourism_02_03">Institution</option></select
-                  ><br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="tourism_03"
-                    checked="checked"
-                  />
-                  Museums
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default" style="display: none">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a
-                    class="collapse"
-                    data-toggle="collapse"
-                    href="#collapse-services"
-                  >
-                    <i class="fa fa-bank"></i> Services
-                  </a>
-                </h4>
-              </div>
-
-              <div id="collapse-services" class="panel-collapse collapse in">
-                <div class="panel-body">
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="services_01"
-                  />
-                  Culture<br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="services_02"
-                  />
-                  Health<br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="services_03"
-                  />
-                  Places of worship<br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="services_04"
-                  />
-                  Safety<br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="services_05"
-                  />
-                  Schools<br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="services_06"
-                  />
-                  Sports
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a
-                    class="collapse"
-                    data-toggle="collapse"
-                    href="#collapse-shops"
-                  >
-                    <i class="fa fa-shopping-cart"></i> Shops
-                  </a>
-                </h4>
-              </div>
-              <!-- Remove "in" from the class to close this panel on page loading -->
-              <div id="collapse-shops" class="panel-collapse collapse in">
-                <div class="panel-body">
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="shops_01"
-                  />
-                  Beauty<br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="shops_02"
-                  />
-                  Clothes &amp; Jewels<br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="shops_03"
-                  />
-                  Food<br />
-                  <input
-                    type="checkbox"
-                    name="marker_type[]"
-                    value="shops_04"
-                  />
-                  Services
-                </div>
-              </div>
-            </div>
-          </div>
+          />
         </div>
       </div>
     </div>
