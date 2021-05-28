@@ -287,8 +287,8 @@
           ],
         }
       );
-      bounds.extend(init_latlng);
-      var init_latlngBounds = map.getBounds();
+      // bounds.extend(init_latlng);
+      // var init_latlngBounds = map.getBounds();
       if (s.mapType == "perspective") map.setTilt(45);
 
       //Containers
@@ -469,7 +469,7 @@
         if ($("#activmap-target").length) {
           $("#activmap-target").on("click", function () {
             latlng = init_latlng;
-            _update_places_bounds();
+            // _update_places_bounds();
             _update_map();
           });
         }
@@ -493,6 +493,7 @@
             autocomplete,
             "place_changed",
             function () {
+              s.radius = 50;
               var place = autocomplete.getPlace();
               latlng = place.geometry.location;
               map.setCenter(place.geometry.location);
@@ -502,9 +503,9 @@
               ).each(function () {
                 _update_places_tag($(this), false);
               });
-              // _update_center_marker();
+              _update_center_marker();
               //bounds = map.getBounds();
-              // _update_map();
+              _update_map();
             }
           );
         }
@@ -611,6 +612,7 @@
               );
               latlng = initialLocation;
               map.setCenter(latlng);
+              s.radius = 50;
               // if ($(".activmap-place").length)
               _order();
               $(
@@ -618,9 +620,9 @@
               ).each(function () {
                 _update_places_tag($(this), false);
               });
-              // _update_center_marker();
+              _update_center_marker();
               //bounds = map.getBounds();
-              // _update_map();
+              _update_map();
             },
             function () {
               handleNoGeolocation(browserSupportFlag);
