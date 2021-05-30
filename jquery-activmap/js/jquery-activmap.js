@@ -12,7 +12,7 @@
       lng: 21.2235513, //longitude of the center
       // lat: 51.507351, //latitude of the center
       // lng: -0.127758, //longitude of the center
-      zoom: 10, //default zoom level between 0 and 21
+      zoom: 3, //default zoom level between 0 and 21
       cluster: true, //enables / disables clustering for large amounts of markers
       mapType: "roadmap", //map type : "roadmap", "satellite", "perspective"
       posPanel: "left", //position of the removable panel : "left" or "right"
@@ -339,7 +339,7 @@
           //Marker init
           var myLatlng = new google.maps.LatLng(place.lat, place.lng);
           // var myIcon = (place.icon != '' && place.icon != undefined) ? place.icon : s.icon;
-          var myIcon = "red.png";
+          var myIcon = "pin-vntg.svg";
           var marker = new google.maps.Marker({
             map: map,
             position: myLatlng,
@@ -494,6 +494,7 @@
             "place_changed",
             function () {
               s.radius = 50;
+              s.zoom = 12;
               var place = autocomplete.getPlace();
               latlng = place.geometry.location;
               map.setCenter(place.geometry.location);
@@ -613,6 +614,7 @@
               latlng = initialLocation;
               map.setCenter(latlng);
               s.radius = 50;
+              s.zoom = 12;
               // if ($(".activmap-place").length)
               _order();
               $(
@@ -710,9 +712,9 @@
         var a =
           Math.sin(dLat / 2) * Math.sin(dLat / 2) +
           Math.cos(_rad(p1.lat())) *
-            Math.cos(_rad(p2.lat())) *
-            Math.sin(dLong / 2) *
-            Math.sin(dLong / 2);
+          Math.cos(_rad(p2.lat())) *
+          Math.sin(dLong / 2) *
+          Math.sin(dLong / 2);
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         var d = R * c;
         return d;
