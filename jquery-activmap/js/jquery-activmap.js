@@ -493,7 +493,7 @@
             autocomplete,
             "place_changed",
             function () {
-              s.radius = 50;
+              // s.radius = 50;
               s.zoom = 9;
               var place = autocomplete.getPlace();
               latlng = place.geometry.location;
@@ -613,7 +613,7 @@
               );
               latlng = initialLocation;
               map.setCenter(latlng);
-              s.radius = 50;
+              // s.radius = 50;
               s.zoom = 9;
               // if ($(".activmap-place").length)
               _order();
