@@ -494,7 +494,7 @@
             "place_changed",
             function () {
               s.radius = 50;
-              s.zoom = 12;
+              s.zoom = 9;
               var place = autocomplete.getPlace();
               latlng = place.geometry.location;
               map.setCenter(place.geometry.location);
@@ -614,7 +614,7 @@
               latlng = initialLocation;
               map.setCenter(latlng);
               s.radius = 50;
-              s.zoom = 12;
+              s.zoom = 9;
               // if ($(".activmap-place").length)
               _order();
               $(
@@ -712,9 +712,9 @@
         var a =
           Math.sin(dLat / 2) * Math.sin(dLat / 2) +
           Math.cos(_rad(p1.lat())) *
-          Math.cos(_rad(p2.lat())) *
-          Math.sin(dLong / 2) *
-          Math.sin(dLong / 2);
+            Math.cos(_rad(p2.lat())) *
+            Math.sin(dLong / 2) *
+            Math.sin(dLong / 2);
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         var d = R * c;
         return d;
@@ -905,11 +905,13 @@
             place.dist = _get_distance(place.marker.position, latlng);
             //the place is in all tags => set visible
             if (s.radius == 0 || place.dist <= s.radius * 1000) {
+              console.log("if");
               place.num_tags++;
               place.marker.setVisible(true);
               place.isVisible = true;
               $("#activmap-place_" + place.id).show();
             } else {
+              console.log("else");
               //perform only if a checkbox is clicked
               if (place.num_tags > 0) place.num_tags--;
               if (place.num_tags == 0) {
@@ -930,7 +932,7 @@
           }
         });
 
-        _update_places_bounds();
+        // _update_places_bounds();
 
         $("#activmap-results-num").html(num_places + " result(s)");
       };
