@@ -406,7 +406,7 @@
             $(".country").html(place.country);
             $(".zipCode").html(place.zipCode);
             $(".city").html(place.city);
-            $(".whatsapp").attr("href", place.url);
+            $(".whatsapp").attr("href", place.url).attr("target", "_blank");
             // console.log('markder', place)
           });
 
